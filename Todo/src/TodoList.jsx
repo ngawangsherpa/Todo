@@ -1,14 +1,14 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 function TodoList() {
-  const [todoItems, setTodoItems] = useState(0);
+  const [todoItems, setTodoItems] = useState([]);
 
   const addTodo = (todo) => {
-    setTodoItems(todoItems.concat(todo0));
+    setTodoItems(todoItems.concat(todo));
   };
+
   const removeTodo = (index) => {
-    const updatedTodos = todoItems.splice();
+    const updatedTodos = [...todoItems];
     updatedTodos.splice(index, 1);
     setTodoItems(updatedTodos);
   };
@@ -19,12 +19,12 @@ function TodoList() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          const todoINput = e.target.elements.todo;
+          const todoInput = e.target.elements.todo;
           addTodo({
             text: todoInput.value,
             completed: false,
           });
-          todoINput.value = "";
+          todoInput.value = "";
         }}
       >
         <input type="text" name="todo" placeholder="Enter a new todo" />
@@ -42,4 +42,4 @@ function TodoList() {
   );
 }
 
-export default Todo;
+export default TodoList;
